@@ -1,40 +1,14 @@
-import { useState } from "react";
-import { ToastContainer } from "react-toastify";
-import Contacts from "./components/contacts/Contacts";
-import FormComponent from "./components/form/Form";
-import { addInfo, editHandler } from "./utils/functions";
+import React from 'react'
+import Purchasing from './components/Purchasing/Purchasing'
+import Store from './components/Store/Store'
 
-const initialState = { username: "", phoneNumber: "", gender: "NO INFO" };
-
-function App() {
-  const [info, setInfo] = useState(initialState);
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-    if(info?.id){
-      editHandler(info)
-    }else{
-      addInfo(info)
-    }
-    setInfo(initialState)
-  };
-
-  const updateFormHandler = (item) => {
-    setInfo({...item})
-  }
-
+const App = () => {
   return (
-    <div className="App">
-      <FormComponent
-        handleFormSubmit={handleFormSubmit}
-        className="form"
-        info={info}
-        setInfo={setInfo}
-      />
-      <Contacts className="contacts" updateFormHandler={updateFormHandler} />
-      <ToastContainer />
+    <div className='App'>
+      <Purchasing />
+      <Store/>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
