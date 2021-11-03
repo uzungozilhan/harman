@@ -1,12 +1,12 @@
 import React from 'react'
 import Purchasing from './components/Purchasing/Purchasing'
-import Store from './components/Store/Store'
+import List from './components/List/List'
 
 const App = () => {
   return (
     <div className='App'>
       <Purchasing />
-      <Store/>
+      <List/>
     </div>
   )
 }

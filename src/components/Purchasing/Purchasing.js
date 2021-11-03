@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import { VehicleList } from "./VehicleList"; 
 // import AdapterDateFns from '@mui/lab/AdapterDateFns';
 // import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
-const initialFormValues = { fullname: "", phone_number: "" };
+const initialFormValues = { date: "", license_plate: "", model: "", chassis_no: "", amount: "", birim: "", malzeme: "", alinacak_yer: "", istek_yapan_kisi: "", aciklama: "", alindigi_tarih: "", };
 
 function Purchasing({ addContact, contacts }) {
 	const [form, setForm] = useState(initialFormValues);
@@ -17,8 +18,9 @@ function Purchasing({ addContact, contacts }) {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
+		console.log(form)
 
-		if (form.fullname === "" || form.phone_number === "") {
+		if (form.date === "" && form.plaka === "") {
 			return false;
 		}
 
@@ -38,7 +40,7 @@ function Purchasing({ addContact, contacts }) {
 			</div>
 			<div> Plaka 
 				<input
-					name="Plaka"
+					name="license_plate"
 					placeholder="Plaka"
 					value={form.plaka}
                         onChange={onChangeInput}
@@ -47,7 +49,7 @@ function Purchasing({ addContact, contacts }) {
 			</div>
 			<div> Araç Modeli 
 				<input
-					name="Model"
+					name="model"
 					placeholder=""
 					value={form.model}
                         onChange={onChangeInput}
@@ -56,16 +58,35 @@ function Purchasing({ addContact, contacts }) {
 			</div>
 			<div> Şasi No: 
 				<input
-					name="Şasi"
+					name="chassis_no"
 					placeholder=""
 					value={form.sasi}
                         onChange={onChangeInput}
                        
 				/>
 			</div>
+			<div> Miktar: 
+				<input
+					name="amount"
+					placeholder="Miktar"
+					value={form.miktar}
+						onChange={onChangeInput}
+						type="number"
+                       
+				/>
+			</div>
+			<div> Birim: 
+				<input
+					name="birim"
+					placeholder="Birim"
+					value={form.birim}
+                        onChange={onChangeInput}
+                       
+				/>
+			</div>
 			<div> Alınacak Malzeme
 				<input
-					name="Malzeme"
+					name="malzeme"
 					placeholder="Alınacak Malzeme"
 					value={form.malzeme}
 					onChange={onChangeInput}
@@ -74,7 +95,7 @@ function Purchasing({ addContact, contacts }) {
 
 			<div> Alınacak Yer
 				<input
-					name="Alınacak_Yer"
+					name="alinacak_yer"
 					placeholder="Alınacak Yer"
 					value={form.alinacak_yer}
 					onChange={onChangeInput}
@@ -82,7 +103,7 @@ function Purchasing({ addContact, contacts }) {
 			</div>
 			<div> İstek Yapan Kişi
 				<input
-					name="İstek Yapan Kişi"
+					name="istek_yapan_kisi"
 					placeholder="İstek Yapan Kişi"
 					value={form.istek_yapan_kisi}
 					onChange={onChangeInput}
@@ -90,7 +111,7 @@ function Purchasing({ addContact, contacts }) {
 			</div>
 			<div> Açıklama
 				<input
-					name="Açıklama"
+					name="aciklama"
 					placeholder="Açıklama"
 					value={form.aciklama}
 					onChange={onChangeInput}
@@ -98,7 +119,7 @@ function Purchasing({ addContact, contacts }) {
 			</div>
 			<div> Alındığı Tarih
 				<input
-					name="Alındığı Tarih"
+					name="alindigi_tarih"
 					placeholder="Alındığı Tarih"
 					value={form.alindigi_tarih}
 						onChange={onChangeInput}

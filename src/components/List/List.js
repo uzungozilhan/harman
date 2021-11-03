@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Store = () => {
+const List = () => {
     return (
         <div>
-            Store
+            List
         </div>
     )
 }
 
-export default Store
+export default List
