@@ -3,14 +3,14 @@ import { VehicleList } from "./VehicleList";
 // import AdapterDateFns from '@mui/lab/AdapterDateFns';
 // import LocalizationProvider from '@mui/lab/LocalizationProvider';
 
-const initialFormValues = { date: "", license_plate: "", model: "", chassis_no: "", amount: "", birim: "", malzeme: "", alinacak_yer: "", istek_yapan_kisi: "", aciklama: "", alindigi_tarih: "", };
+const initialFormValues = { date: "", license_plate: "", model: "", chassis_no: "", amount: "1", quantity: "Adet", malzeme: "", alinacak_yer: "", istek_yapan_kisi: "", aciklama: "", alindigi_tarih: "", };
 
-function Purchasing({ addContact, contacts }) {
+function Purchasing({ addItem, item }) {
 	const [form, setForm] = useState(initialFormValues);
 
 	useEffect(() => {
 		setForm(initialFormValues);
-	}, [contacts]);
+	}, [item]);
 
 	const onChangeInput = (e) => {
 		setForm({ ...form, [e.target.name]: e.target.value });
@@ -20,11 +20,13 @@ function Purchasing({ addContact, contacts }) {
 		e.preventDefault();
 		console.log(form)
 
-		if (form.date === "" && form.plaka === "") {
+		if (form.date === "" || form.plaka === "") {
 			return false;
 		}
 
-		addContact([...contacts, form]);
+		addItem([...item, form]);
+
+		setForm({date: "", license_plate: "", model: "", chassis_no: "", amount: "1", quantity: "Adet", malzeme: "", alinacak_yer: "", istek_yapan_kisi: "", aciklama: "", alindigi_tarih: "",})
 	};
     return (
         <div>
@@ -42,7 +44,7 @@ function Purchasing({ addContact, contacts }) {
 				<input
 					name="license_plate"
 					placeholder="Plaka"
-					value={form.plaka}
+					value={form.license_plate}
                         onChange={onChangeInput}
                        
 				/>
@@ -60,7 +62,7 @@ function Purchasing({ addContact, contacts }) {
 				<input
 					name="chassis_no"
 					placeholder=""
-					value={form.sasi}
+					value={form.chassis_no}
                         onChange={onChangeInput}
                        
 				/>
@@ -68,8 +70,8 @@ function Purchasing({ addContact, contacts }) {
 			<div> Miktar: 
 				<input
 					name="amount"
-					placeholder="Miktar"
-					value={form.miktar}
+					// placeholder="Miktar"
+					value={form.amount}
 						onChange={onChangeInput}
 						type="number"
                        
@@ -77,9 +79,9 @@ function Purchasing({ addContact, contacts }) {
 			</div>
 			<div> Birim: 
 				<input
-					name="birim"
+					name="quantity"
 					placeholder="Birim"
-					value={form.birim}
+					value={form.quantity}
                         onChange={onChangeInput}
                        
 				/>
