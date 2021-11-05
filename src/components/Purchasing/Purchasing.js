@@ -18,13 +18,14 @@ function Purchasing({ addItem, item }) {
 
 	const onSubmit = (e) => {
 		e.preventDefault();
-		console.log(form)
 
 		if (form.date === "" || form.plaka === "") {
 			return false;
 		}
 
 		addItem([...item, form]);
+		console.log(item)
+
 
 		setForm({date: "", license_plate: "", model: "", chassis_no: "", amount: "1", quantity: "Adet", malzeme: "", alinacak_yer: "", istek_yapan_kisi: "", aciklama: "", alindigi_tarih: "",})
 	};

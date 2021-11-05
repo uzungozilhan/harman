@@ -12,9 +12,9 @@ const Item = () => {
     return (
         <div>
             <Purchasing addItem={setItem} item={ item }/>
-            <List />
+            <List item={item} />
         </div>
     )
 }
 
-export default Item
+export default Item;
