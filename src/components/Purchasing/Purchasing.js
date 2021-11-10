@@ -27,7 +27,7 @@ function Purchasing({ addItem, item }) {
 		console.log(item)
 
 
-		setForm({date: "", license_plate: "", model: "", chassis_no: "", amount: "1", quantity: "Adet", malzeme: "", alinacak_yer: "", istek_yapan_kisi: "", aciklama: "", alindigi_tarih: "",})
+		// setForm(initialFormValues)
 	};
     return (
         <div>
